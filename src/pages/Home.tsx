@@ -69,7 +69,7 @@ function Hero() {
             STAR RESEARCH LAB
           </p>
           <h1
-            className="mb-4 font-serif text-4xl font-bold leading-tight text-text-primary md:text-[48px]"
+            className="mb-4  whitespace-nowrap font-serif text-[clamp(1.5rem,6.5vw,48px)] font-bold leading-tight text-text-primary"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "none" : "translateY(8px)",
