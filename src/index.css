@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* Self-hosted fonts — see Phase 2 typography system:
+   mono = structural/technical, serif = reading content, math = notation.
+   Latin subset only — the site's content is English, and importing every
+   unicode range (cyrillic, greek, vietnamese, etc.) would triple the font
+   payload for no benefit here. */
+@import "@fontsource/ibm-plex-mono/latin-400.css";
+@import "@fontsource/ibm-plex-mono/latin-500.css";
+@import "@fontsource/source-serif-4/latin-400.css";
+@import "@fontsource/source-serif-4/latin-600.css";
+@import "@fontsource/source-serif-4/latin-700.css";
+@import "@fontsource/stix-two-text/latin-400.css";
+@import "@fontsource/stix-two-math/latin-400.css";
+
+/* ---------------------------------------------------------------------
+   Design tokens (Phase 2). Tailwind v4's spacing scale (0.25rem steps)
+   already matches the approved 4/8/12/16/24/32/48/64/96/128 spacing
+   scale exactly, so no custom spacing tokens are needed — standard
+   utilities (p-4, gap-6, py-24, etc.) map 1:1 onto it.
+   ------------------------------------------------------------------- */
+@theme {
+  /* Color */
+  --color-bg-primary: #0b0f14;
+  --color-bg-secondary: #10151c;
+  --color-surface: #161c25;
+  --color-surface-raised: #1a212c;
+  --color-border: #232b36;
+  --color-border-strong: #2e3946;
+  --color-text-primary: #f2efe7;
+  --color-text-secondary: #93a0ad;
+  --color-text-tertiary: #7c8894; /* AA-adjusted from #5E6B78 — see build notes */
+  --color-accent: #4a90c2;
+  --color-accent-hover: #6ba8d6;
+  --color-accent-active: #386f99;
+  --color-accent-subtle: #4a90c21f;
+
+  /* Type */
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-math: "STIX Two Math", "STIX Two Text", Georgia, serif;
+
+  /* Radius — none everywhere except the one approved exception (chips) */
+  --radius-chip: 2px;
+
+  /* Motion */
+  --ease-lab: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+  }
+
+  /* Visible keyboard focus everywhere — quality floor, never removed */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Page-level transition (route changes) — same restrained vocabulary
+     as the scroll Reveal: ~10px rise, ease-lab, no bounce. Respects
+     prefers-reduced-motion via the global override above. */
+  .animate-page-in {
+    animation: page-in 420ms var(--ease-lab);
+  }
+
+  /* Smooth open/close for the mobile nav and the Fields dropdown. */
+  .animate-menu-in {
+    animation: menu-in 220ms var(--ease-lab);
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
