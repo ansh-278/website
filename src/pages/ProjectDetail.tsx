@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Container } from "@/components/layout/Layout";
 import { SectionBlock } from "@/components/ui/SectionBlock";
 import { EmptyState } from "@/components/ui/EmptyState";
-import { FigureBlock } from "@/components/ui/ContentPrimitives";
+import { FigureBlock , CodeBlock } from "@/components/ui/ContentPrimitives";
 import { ChipRow } from "@/components/ui/Chip";
 import { StatusGlyph } from "@/components/ui/StatusIndicators";
 import { IconButton } from "@/components/ui/IconButton";
@@ -54,10 +54,30 @@ export function ProjectDetail() {
         <SectionBlock eyebrow="Approach">
           <p className="text-text-primary">{entry.approach}</p>
         </SectionBlock>
-
         <SectionBlock eyebrow="Implementation">
           <p className="text-text-primary">{entry.implementation}</p>
+        
+          {entry.codeSnippets?.length ? (
+            <div className="mt-8">
+              {entry.codeSnippets.map((snippet, i) => (
+                <div key={i}>
+                  {snippet.caption && (
+                    <p className="mb-2 font-mono text-xs text-text-tertiary">
+                      {snippet.caption}
+                    </p>
+                  )}
+        
+                  <CodeBlock
+                    code={snippet.code}
+                    language={snippet.language}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : null}
         </SectionBlock>
+
+        
 
         <SectionBlock eyebrow="Results">
           {entry.result ? (
