@@ -8,7 +8,7 @@ export const projectEntries: ProjectEntry[] = [
     description:
       "A numerical simulation of projectile motion, comparing idealized trajectories against ones with quadratic air resistance.",
     technologies: ["Python", "NumPy", "Matplotlib"],
-    status: "ongoing",
+    status: "Completed",
     date: "2026-08-16",
     problem:
       "How a projectile's trajectory under gravity alone compares to one under gravity plus quadratic air resistance — and whether a step-by-step numerical simulation actually agrees with the known closed-form analytical solution for the no-drag case.",
@@ -48,7 +48,7 @@ ay = -(g + (0.5 * area * rho * k * v * vy) / mass)`,
     description:
       "Numerical simulations of pendulum motion, in three stages — the exact simple pendulum, the small-angle approximation, and the chaotic double pendulum.",
     technologies: ["Python", "NumPy", "Matplotlib"],
-    status: "ongoing",
+    status: "Completed",
     date: "2026-08-17",
     problem:
       "How a pendulum's motion changes as the model gets more complex — from the exact simple-pendulum equation, to the small-angle approximation usually introduced first, to the fully chaotic double pendulum.",
