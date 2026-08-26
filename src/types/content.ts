@@ -51,6 +51,12 @@ export interface Figure {
   caption: string;
 }
 
+export interface CodeSnippet {
+  language: string;
+  caption: string;
+  code: string;
+}
+
 export interface ResearchEntry {
   id: string;
   title: string;
@@ -87,6 +93,7 @@ export interface ProjectEntry {
   result?: string;
   github?: string;
   demo?: string;
+  codeSnippets?: CodeSnippet[];
   figures: Figure[];
 }
 
