@@ -1,4 +1,4 @@
-# NAYAK // RESEARCH LAB
+# STAR RESEARCH LAB
 
 The production implementation of the site specified across Phases 1–7: a personal
 research-portfolio site for a B.Sc. Physics undergraduate, built as a working
