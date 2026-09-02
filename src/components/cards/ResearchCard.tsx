@@ -7,7 +7,7 @@ export function ResearchCard({ entry, code }: { entry: ResearchEntry; code: stri
   return (
     <Link
       to={`/research/${entry.id}`}
-      className="group block border border-border bg-surface p-4 transition-[color,background-color,border-color,transform] duration-200 ease-[var(--ease-lab)] hover:-translate-y-0.5 hover:border-border-strong"
+      className="group block border border-border bg-surface p-4 transition-all duration-200 hover:border-border-strong hover:shadow-[0_0_24px_-4px_rgba(74,144,194,0.22)]"
     >
       <div className="mb-3 h-0.5 w-full bg-border transition-colors duration-150 group-hover:bg-accent" />
       <p className="mb-2 font-mono text-xs text-accent">{code}</p>
