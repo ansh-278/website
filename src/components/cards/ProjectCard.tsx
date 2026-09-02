@@ -7,7 +7,7 @@ import { RepoIcon, ExternalLinkIcon } from "@/components/ui/Icons";
 
 export function ProjectCard({ entry, code }: { entry: ProjectEntry; code: string }) {
   return (
-    <div className="group relative border border-border bg-surface p-4 transition-[color,background-color,border-color,transform] duration-200 ease-[var(--ease-lab)] hover:-translate-y-0.5 hover:border-border-strong">
+    <div className="group relative border border-border bg-surface p-4 transition-all duration-200 hover:border-border-strong hover:shadow-[0_0_24px_-4px_rgba(74,144,194,0.22)]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-0.5 bg-border transition-colors duration-150 group-hover:bg-accent" />
       <p className="mb-2 font-mono text-xs text-accent">{code}</p>
       <h3 className="mb-2 font-serif text-xl font-semibold leading-snug text-text-primary">
@@ -34,4 +34,4 @@ export function ProjectCard({ entry, code }: { entry: ProjectEntry; code: string
       </div>
     </div>
   );
-}
+}}
