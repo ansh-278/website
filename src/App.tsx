@@ -10,7 +10,7 @@ import { ProjectsIndex } from "@/pages/ProjectsIndex";
 import { ProjectDetail } from "@/pages/ProjectDetail";
 import { NotesIndex } from "@/pages/NotesIndex";
 import { NoteDetail } from "@/pages/NoteDetail";
-import { Resume } from "@/pages/Resume";
+import Resume from "@/pages/CV";
 import { About } from "@/pages/About";
 import { Contact } from "@/pages/Contact";
 import { NotFound } from "@/pages/NotFound";
