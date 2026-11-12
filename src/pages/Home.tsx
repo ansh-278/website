@@ -257,8 +257,7 @@ function AboutTeaser() {
             About
           </p>
           <p className="mb-5 text-text-primary">
-            [Placeholder — 2–3 sentence present-tense introduction: academic context and current
-            interests.]
+            Not Updated Yet. Stay tuned.
           </p>
           <p className="mb-5 font-mono text-xs text-text-tertiary">
             S.K.C.G College · B.Sc. Physics · 2025–2028
