@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { AxisDivider } from "@/components/ui/HeaderVisuals";
@@ -12,11 +13,13 @@ import { noteEntries } from "@/content/notes";
 import { researchCodes, projectCodes } from "@/lib/codes";
 import { useReveal } from "@/lib/useReveal";
 
-const CURRENTLY = [
-  { field: "Physics", href: "/physics" },
-  { field: "Mathematics", href: "/mathematics" },
-  { field: "Computation", href: "/computation" },
-  { field: "Research", href: "/research" },
+const SECTIONS = [
+  { title: "Research", href: "/research", text: "Independent investigations, written up as they progress." },
+  { title: "Projects", href: "/projects", text: "Simulations and code, with links to the source on GitHub." },
+  { title: "Physics", href: "/physics", text: "Physical theory and the questions I work through." },
+  { title: "Mathematics", href: "/mathematics", text: "Mathematical methods and structures behind the physics." },
+  { title: "Computation", href: "/computation", text: "Numerical models and simulations built in Python." },
+  { title: "Notes", href: "/notes", text: "Derivations, problem write-ups and concept explorations." },
 ] as const;
 
 function Hero() {
@@ -107,7 +110,7 @@ function Hero() {
               transition: "opacity 300ms var(--ease-lab) 280ms, transform 300ms var(--ease-lab) 280ms",
             }}
           >
-            <Button to="/research">Explore the Lab</Button>
+            <Button href="#explore">Explore the Lab</Button>
             <Button variant="text" href="/resume">
               Download CV
             </Button>
@@ -121,31 +124,34 @@ function Hero() {
   );
 }
 
-function Currently() {
+function Explore() {
   return (
-    <Section tone="secondary">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {CURRENTLY.map((item, i) => (
-          <Reveal key={item.field} delay={i * 50}>
-            <a
-              href={item.href}
-              className="group block h-full border border-border bg-surface p-4"
-            >
-              <div className="mb-3 h-0.5 w-full bg-border transition-colors duration-150 group-hover:bg-accent" />
-              <p className="mb-2 font-mono text-xs uppercase tracking-wider text-accent">
-                {item.field}
-              </p>
-              <p className="mb-4 text-sm text-text-secondary">
-                [Placeholder — current focus in {item.field}]
-              </p>
-              <p className="font-mono text-xs text-text-tertiary transition-transform duration-150 group-hover:translate-x-0.5">
-                → View field
-              </p>
-            </a>
-          </Reveal>
-        ))}
-      </div>
-    </Section>
+    <div id="explore" className="scroll-mt-16">
+      <Section tone="secondary">
+        <p className="mb-8 font-mono text-xs uppercase tracking-wider text-text-tertiary">
+          Explore the Lab
+        </p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {SECTIONS.map((item, i) => (
+            <Reveal key={item.title} delay={i * 50}>
+              <Link
+                to={item.href}
+                className="group block h-full border border-border bg-surface p-4"
+              >
+                <div className="mb-3 h-0.5 w-full bg-border transition-colors duration-150 group-hover:bg-accent" />
+                <p className="mb-2 font-mono text-xs uppercase tracking-wider text-accent">
+                  {item.title}
+                </p>
+                <p className="mb-4 text-sm text-text-secondary">{item.text}</p>
+                <p className="font-mono text-xs text-text-tertiary transition-transform duration-150 group-hover:translate-x-0.5">
+                  → Open {item.title}
+                </p>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+    </div>
   );
 }
 
@@ -281,7 +287,12 @@ function CvContact() {
                 Contact
               </Button>
             </div>
-            <p className="font-mono text-sm text-accent">[Placeholder — email address]</p>
+            <a
+              href="mailto:shresthansh278@gmail.com"
+              className="font-mono text-sm text-accent underline decoration-transparent underline-offset-4 hover:decoration-current"
+            >
+              shresthansh278@gmail.com
+            </a>
           </div>
         </Reveal>
       </Container>
@@ -293,7 +304,7 @@ export function Home() {
   return (
     <>
       <Hero />
-      <Currently />
+      <Explore />
       <div className="flex justify-center bg-bg-primary py-2">
         <AxisDivider />
       </div>
