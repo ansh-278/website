@@ -11,6 +11,11 @@ const rows: { label: string; value: string; href?: string }[] = [
     value: "github.com/ansh-278",
     href: "https://github.com/ansh-278",
   },
+    {
+    label: "LinkedIn",
+    value: "linkedin.com/in/shresthansh-nayak-",
+    href: "https://www.linkedin.com/in/shresthansh-nayak-",
+  },
   { label: "Based in", value: "Odisha, India" },
 ];
 
