@@ -11,6 +11,10 @@ export default function CV() {
           <p className="cv-meta">
             Odisha, India ·{" "}
             <a href="mailto:shresthansh278@gmail.com">shresthansh278@gmail.com</a>
+            {" · "}
+            <a href="https://github.com/ansh-278" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
           </p>
         </div>
         <div className="cv-actions">
@@ -93,6 +97,14 @@ export default function CV() {
             fourth-order Runge–Kutta (RK4) method to study coupled, nonlinear
             motion.
           </p>
+          <a
+            className="cv-link"
+            href="https://github.com/ansh-278/oscillating_pendulum"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View on GitHub →
+          </a>
         </article>
         <article className="cv-item">
           <h3>Projectile Motion Simulator</h3>
@@ -100,6 +112,14 @@ export default function CV() {
             Python simulation of projectile motion, including the effect of air
             resistance, to explore how forces influence trajectories.
           </p>
+          <a
+            className="cv-link"
+            href="https://github.com/ansh-278/projectile-motion"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View on GitHub →
+          </a>
         </article>
       </section>
 
