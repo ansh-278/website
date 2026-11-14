@@ -20,20 +20,20 @@
    utilities (p-4, gap-6, py-24, etc.) map 1:1 onto it.
    ------------------------------------------------------------------- */
 @theme {
-  /* Color */
-  --color-bg-primary: #0b0f14;
-  --color-bg-secondary: #10151c;
-  --color-surface: #161c25;
-  --color-surface-raised: #1a212c;
-  --color-border: #232b36;
-  --color-border-strong: #2e3946;
-  --color-text-primary: #f2efe7;
-  --color-text-secondary: #93a0ad;
-  --color-text-tertiary: #7c8894; /* AA-adjusted from #5E6B78 — see build notes */
-  --color-accent: #4a90c2;
-  --color-accent-hover: #6ba8d6;
-  --color-accent-active: #386f99;
-  --color-accent-subtle: #4a90c21f;
+  /* Color — deep-space theme, amber accent */
+  --color-bg-primary: #06060f;
+  --color-bg-secondary: #0a0a1b;
+  --color-surface: #101026;
+  --color-surface-raised: #161631;
+  --color-border: #23234d;
+  --color-border-strong: #34346b;
+  --color-text-primary: #f1eefc;
+  --color-text-secondary: #a6a6c9;
+  --color-text-tertiary: #8888b0;
+  --color-accent: #f0a63a;
+  --color-accent-hover: #ffc062;
+  --color-accent-active: #cf8a22;
+  --color-accent-subtle: #f0a63a1f;
 
   /* Type */
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -45,6 +45,40 @@
 
   /* Motion */
   --ease-lab: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------------------------------------------------------------------
+   Space backdrop: soft nebula glows + a sparse field of stars, fixed
+   behind the whole site. Sections are made see-through so it shows.
+   ------------------------------------------------------------------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 60% 45% at 12% 0%, rgba(235, 140, 50, 0.17), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 95% 35%, rgba(70, 90, 220, 0.14), transparent 70%),
+    radial-gradient(ellipse 55% 40% at 30% 100%, rgba(215, 90, 60, 0.10), transparent 70%),
+    radial-gradient(1px 1px at 23px 37px, rgba(255, 255, 255, 0.75), transparent),
+    radial-gradient(1px 1px at 88px 121px, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 161px 62px, rgba(255, 224, 170, 0.85), transparent),
+    radial-gradient(1px 1px at 137px 173px, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 52px 188px, rgba(170, 200, 255, 0.6), transparent);
+  background-size: auto, auto, auto, 210px 210px, 210px 210px, 210px 210px, 210px 210px, 210px 210px;
+}
+
+#root .bg-bg-primary {
+  background-color: transparent;
+}
+#root .bg-bg-secondary {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 72%, transparent);
+}
+/* these two must stay solid */
+#root footer.bg-bg-primary,
+#root .z-30.bg-bg-primary {
+  background-color: var(--color-bg-primary);
 }
 
 @layer base {
